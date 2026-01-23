@@ -80,7 +80,7 @@ export default function Home() {
     <div className="home">
       <section className="hero large-hero">
         <div className="container">
-          <h1 className="hero-title">Your One-Stop <span className="accent">Study Hub</span></h1>
+          <h1 className="hero-title">All-In-One <span className="accent">NIT~DRIVE</span></h1>
           <p className="hero-sub">Access notes, previous year questions, syllabus, and more for all semesters at NIT Raipur</p>
         </div>
       </section>
