@@ -8,6 +8,8 @@ import Faculty from './pages/Faculty'
 import Blog from './pages/Blog'
 import Syllabus from './pages/Syllabus'
 import Placement from './pages/Placement'
+import Roadmap from './pages/Roadmap'
+import ImpTools from './pages/ImpTools'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -24,6 +26,8 @@ export default function App() {
           <Route path="/placement" element={<Placement />} />
           <Route path="/faculty" element={<Faculty />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/roadmap" element={<Roadmap />} />
+          <Route path="/tools" element={<ImpTools />} />
         </Routes>
       </main>
       <Footer />

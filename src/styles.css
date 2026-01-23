@@ -249,6 +249,99 @@ html, body, .container, .card, .nav-inner { transition: background-color .24s ea
   .card h3{font-size:1rem}
 }
 
+/* Roadmap page styles */
+.roadmap-hero{padding:28px 0}
+.roadmap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+.roadmap-grid .card{opacity:0;transform:translateY(18px);animation:cardIn .52s ease both}
+.roadmap-grid .card:nth-child(1){animation-delay:.02s}
+.roadmap-grid .card:nth-child(2){animation-delay:.08s}
+.roadmap-grid .card:nth-child(3){animation-delay:.14s}
+.roadmap-grid .card:nth-child(4){animation-delay:.20s}
+.roadmap-grid .card:nth-child(5){animation-delay:.26s}
+.roadmap-grid .card:nth-child(6){animation-delay:.32s}
+.roadmap-grid .card:nth-child(7){animation-delay:.38s}
+.roadmap-grid .card:nth-child(8){animation-delay:.44s}
+.roadmap-grid .card:nth-child(9){animation-delay:.50s}
+.roadmap-grid .card:nth-child(10){animation-delay:.56s}
+.card-float{display:inline-flex;align-items:center;justify-content:center;animation:floatY 5.8s ease-in-out infinite}
+@keyframes floatY{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+.tags{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.tag{background:var(--btn-bg);color:var(--btn-text);padding:.35rem .55rem;border-radius:999px;font-size:.82rem}
+.roadmap .card{padding:1rem}
+.roadmap .muted{margin-top:.25rem}
+
+/* Roadmap modal steps */
+.roadmap-steps{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+.roadmap-steps{list-style:none;padding:8px 6px;margin:0;position:relative}
+.roadmap-steps:before{content:'';position:absolute;left:28px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,rgba(0,0,0,0.06),rgba(0,0,0,0.02));border-radius:2px}
+.roadmap-steps .step{display:flex;gap:12px;align-items:flex-start;padding:12px 12px 12px 46px;border-radius:10px;background:var(--card-bg);box-shadow:var(--card-shadow);opacity:0;transform:translateY(10px);animation:stepIn .42s ease forwards}
+.roadmap-steps .step .step-icon{width:44px;height:44px;border-radius:999px;background:var(--btn-bg);display:inline-flex;align-items:center;justify-content:center;font-size:20px;margin-left:-56px;flex-shrink:0;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+.roadmap-steps .step .step-body{flex:1}
+.roadmap-steps .step .step-title{font-weight:700;margin-bottom:6px}
+@keyframes stepIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* Slightly larger modal body for roadmap */
+.modal-body{max-height:60vh;overflow:auto;padding-top:1rem}
+
+@media (max-width:980px){
+  .roadmap-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .roadmap-grid{grid-template-columns:1fr}
+  .modal{max-width:94%}
+}
+
+/* Flowchart styling */
+.flowchart-wrap{display:flex;flex-direction:column;gap:12px}
+.flowchart-svg{width:100%;height:520px;background:transparent}
+.flow-node rect{fill:var(--card-bg);stroke:rgba(255,255,255,0.03);stroke-width:1;filter:url(#nodeShadow)}
+.flow-node text{fill:var(--text);font-weight:700;font-size:14px}
+.flow-node.highlight rect{border:2px solid var(--accent);stroke:var(--accent);}
+.connectors .flow-path{stroke:linear-gradient(90deg,var(--accent),#fff);stroke:#9aa4b2;stroke-opacity:0.7}
+.connectors .flow-path{stroke:#9aa4b2;stroke-opacity:0.85;stroke-linecap:round}
+.connectors .flow-path{stroke-dasharray:400;stroke-dashoffset:400;animation:draw 1.2s ease forwards}
+
+@keyframes draw{
+  to{stroke-dashoffset:0}
+}
+
+.flow-legend{margin-top:8px}
+
+/* make nodes interactive on hover */
+.flow-node:hover rect{transform:translateY(-6px) scale(1.02);transition:transform .18s;filter:drop-shadow(0 8px 30px rgba(0,0,0,0.25))}
+.flow-node:hover text{fill:var(--accent)}
+
+@media (max-width:980px){
+  .flowchart-svg{height:760px}
+}
+
+/* Node detail shown under flowchart */
+.node-detail{margin-top:14px;padding:12px;border-radius:10px;background:var(--card-bg);box-shadow:var(--card-shadow);}
+
+/* Timeline / pictorial for other topics */
+.timeline-wrap{padding:8px}
+.timeline-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.timeline-item{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:14px;display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer;transition:transform .22s,box-shadow .22s}
+.timeline-item:hover{transform:translateY(-8px);box-shadow:0 30px 70px rgba(2,6,23,0.45)}
+.timeline-media{width:100px;height:100px;border-radius:12px;background:linear-gradient(180deg, rgba(0,0,0,0.04), rgba(255,255,255,0.02));display:flex;align-items:center;justify-content:center;font-size:34px;box-shadow:inset 0 -8px 18px rgba(0,0,0,0.06)}
+.timeline-title{text-align:center;font-weight:800;font-size:16px;color:var(--text)}
+.timeline-item .muted{color:var(--muted);font-size:.95rem;text-align:center}
+
+/* Carousel styles */
+.carousel{display:flex;align-items:center;gap:12px;position:relative}
+.carousel-card{display:flex;gap:16px;align-items:center;background:var(--card-bg);padding:18px;border-radius:14px;box-shadow:var(--card-shadow);width:100%}
+.carousel-media{width:140px;height:140px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;font-size:44px}
+.carousel-emoji{font-size:44px}
+.carousel-body{flex:1}
+.carousel-title{margin:0;font-size:18px}
+.carousel-btn{background:transparent;border:0;color:var(--muted);font-size:34px;padding:6px;cursor:pointer}
+.carousel-btn.left{margin-left:4px}
+.carousel-btn.right{margin-right:4px}
+.carousel-dots{display:flex;gap:8px;justify-content:center;margin-top:12px}
+.carousel-dots .dot{width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,0.04);border:0}
+.carousel-dots .dot.active{background:var(--accent)}
+.roadmap-modal-controls{display:flex;gap:8px;margin-bottom:8px}
+
 /* Improve visibility and emphasis for bottom Campus Highlights cards */
 .bottom-cards .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:1.5rem;border-radius:14px;box-shadow:0 30px 90px rgba(2,6,23,0.45);border:1px solid rgba(255,255,255,0.03);opacity:1;transform:none;animation:none}
 

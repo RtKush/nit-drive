@@ -1,4 +1,4 @@
-# NITRR Study Material (Frontend-only)
+# NIT DRIVE
 
 This is a static React + Vite frontend for "NITRR Study Material". It contains hardcoded content only (no backend, DB, auth or APIs).
 

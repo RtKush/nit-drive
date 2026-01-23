@@ -8,6 +8,8 @@ const links = [
   { to: '/pyq', label: 'PYQ' },
   { to: '/placement', label: 'Placement' },
   { to: '/blog', label: 'Memories' },
+  { to: '/roadmap', label: 'Roadmap' },
+  { to: '/tools', label: 'Imp Tools' },
 ]
 
 export default function Navbar() {
