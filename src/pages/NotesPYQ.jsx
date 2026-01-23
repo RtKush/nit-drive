@@ -88,7 +88,7 @@ export default function NotesPYQ({ initialTab }) {
               {semesters.map((s) => (
                 <article key={s.id} className="syll-card">
                   <div className="syll-left"><div className="syll-badge">{s.id}</div></div>
-                  <div className="syll-content"><h3>{s.title}</h3><p className="muted small">Click to view previous year questions</p></div>
+                  <div className="syll-content"><h3>{s.title}</h3><p className="muted small">NIT Raipur</p></div>
                   <div style={{display:'flex',alignItems:'center'}}><button className="btn primary" onClick={(e) => { e.stopPropagation(); openSem(s) }}>Open</button></div>
                 </article>
               ))}
@@ -100,7 +100,7 @@ export default function NotesPYQ({ initialTab }) {
               {semesters.map((s, i) => (
                 <article key={s.id} className="syll-tile">
                   <div className="tile-left"><div className="tile-badge">{s.id}</div></div>
-                  <div className="tile-main"><h3>{s.title} — Notes</h3><p className="muted small">Compiled lecture notes, slides and example problems for {s.title}.</p></div>
+                  <div className="tile-main"><h3>{s.title}</h3><p className="muted small"> NIT Raipur</p></div>
                   <div className="tile-cta"><button className="btn primary" onClick={(e) => { e.stopPropagation(); alert('Open Notes placeholder for ' + s.title) }}>View</button></div>
                 </article>
               ))}

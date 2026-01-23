@@ -21,7 +21,7 @@ export default function ImportantLectures() {
               </div>
               <div className="tile-main">
                 <h3>Semester {n}</h3>
-                <div className="muted">Recorded lectures and important sessions for semester {n}.</div>
+                <div className="muted">NIT Raipur</div>
               </div>
               <div className="tile-cta">
                 <button className="btn small" onClick={() => setModal({ open: true, title: `Semester ${n} Lectures`, content: `List of lectures for semester ${n} (static placeholder).` })}>

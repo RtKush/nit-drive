@@ -29,7 +29,7 @@ export default function Syllabus() {
 
                 <div className="tile-main">
                   <h3>{s}</h3>
-                  <p className="muted small">Comprehensive list of subjects and topic breakdown for this semester.</p>
+                  <p className="muted small">NIT Raipur</p>
                 </div>
 
                 <div className="tile-cta">

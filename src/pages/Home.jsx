@@ -131,7 +131,7 @@ export default function Home() {
                                   </div>
                                   <div className="tile-main">
                                     <h3>Semester {n}</h3>
-                                    <div className="muted">Reference books and PDFs for semester {n}.</div>
+                                    <div className="muted">NIT Raipur</div>
                                   </div>
                                   <div className="tile-cta">
                                     <button
