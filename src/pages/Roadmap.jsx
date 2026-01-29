@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import RoadmapFlow from '../components/RoadmapFlow'
 import RoadmapCarousel from '../components/RoadmapCarousel'
+import RoadmapTimeline from '../components/RoadmapTimeline'
+import RoadmapMiniMap from '../components/RoadmapMiniMap'
 
 const cards = [
   {
@@ -174,10 +176,14 @@ export default function Roadmap() {
                         )}
                       </div>
                       <div style={{height:8}} />
-                      {viewMode === 'flow' && selected.flow ? (
+                      {selected.title === 'DSA' ? (
                         <RoadmapFlow topic={selected.title} flow={selected.flow} roadmap={selected.roadmap} onNodeClick={(n) => setSelectedNode(n)} />
                       ) : (
-                        <RoadmapCarousel steps={selected.roadmap.map((t) => ({ title: t, desc: `Focus: ${t}. Practice with small projects and exercises.` }))} onSelect={(t) => setSelectedNode(t)} />
+                        <>
+                          <RoadmapMiniMap steps={selected.roadmap.map((t) => ({ title: t }))} onNodeClick={(t) => setSelectedNode(t)} />
+                          <div style={{height:12}} />
+                          <RoadmapCarousel steps={selected.roadmap.map((t) => ({ title: t, desc: `Focus: ${t}. Practice with small projects and exercises.` }))} onSelect={(t) => setSelectedNode(t)} />
+                        </>
                       )}
                       <div style={{height:8}} />
                       <ol className="roadmap-steps">

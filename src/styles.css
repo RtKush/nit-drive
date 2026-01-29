@@ -291,6 +291,49 @@ html, body, .container, .card, .nav-inner { transition: background-color .24s ea
   .modal{max-width:94%}
 }
 
+/* Mobile layout tweaks: reduce large gaps and stack content */
+@media (max-width:520px){
+  .container{padding-left:12px;padding-right:12px}
+  .roadmap-grid{grid-template-columns:1fr;gap:12px;padding:0}
+  .timeline-grid{grid-template-columns:1fr;gap:10px}
+  .timeline-item{padding:12px;border-radius:12px}
+  .timeline-media{width:100%;height:140px;border-radius:10px}
+  .carousel{flex-direction:column;align-items:stretch}
+  .carousel-card{flex-direction:column;align-items:flex-start;padding:12px}
+  .carousel-media{width:100%;height:180px;border-radius:10px}
+  .carousel-btn{font-size:28px}
+  .flowchart-svg{height:420px}
+  .modal{max-width:calc(100% - 20px);padding:10px}
+  .modal-body{padding:10px}
+  .roadmap-modal-controls{justify-content:flex-start}
+  .roadmap-steps{padding:4px}
+  .roadmap-steps .step{padding:10px;border-radius:10px}
+  .card{padding:12px}
+  .card-top{gap:.6rem}
+  .card-foot-row{flex-direction:row;gap:8px}
+}
+
+/* Further compact formatting for small phones */
+@media (max-width:420px){
+  .container{padding-left:10px;padding-right:10px}
+  .hero-title{font-size:22px}
+  .light-panel{padding:14px}
+  .roadmap-hero{padding:14px}
+  .modal{padding:8px}
+  .modal-head{padding:8px}
+  .modal-body{padding:8px}
+  .flowchart-svg{height:320px}
+  .minimap-svg{height:260px}
+  .timeline-modern-item{gap:10px;padding:10px;border-radius:10px}
+  .timeline-modern-title{font-size:15px}
+  .carousel-media{height:140px}
+  .carousel-card{padding:10px}
+  .card{padding:10px}
+  .card h3{font-size:1rem}
+  .roadmap-grid{gap:10px}
+  .timeline-items{gap:8px}
+}
+
 /* Flowchart styling */
 .flowchart-wrap{display:flex;flex-direction:column;gap:12px}
 .flowchart-svg{width:100%;height:520px;background:transparent}
@@ -341,6 +384,56 @@ html, body, .container, .card, .nav-inner { transition: background-color .24s ea
 .carousel-dots .dot{width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,0.04);border:0}
 .carousel-dots .dot.active{background:var(--accent)}
 .roadmap-modal-controls{display:flex;gap:8px;margin-bottom:8px}
+
+/* Modern vertical timeline styles */
+.timeline-modern{position:relative;padding:6px 0}
+.timeline-line{position:absolute;left:44px;top:12px;bottom:12px;width:3px;background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));border-radius:3px}
+.timeline-items{display:flex;flex-direction:column;gap:12px;padding-left:10px}
+.timeline-modern-item{display:flex;align-items:center;gap:12px;background:var(--card-bg);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);box-shadow:var(--card-shadow);cursor:pointer;transition:transform .18s,box-shadow .18s}
+.timeline-modern-item:hover{transform:translateX(6px);box-shadow:0 30px 80px rgba(2,6,23,0.35)}
+.timeline-modern-item{opacity:0;transform:translateX(-10px);animation:timelineItemIn .42s cubic-bezier(.2,.9,.25,1) forwards}
+.timeline-bullet{width:56px;height:56px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.bullet-inn{width:44px;height:44px;border-radius:999px;background:var(--btn-bg);display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:inset 0 -8px 18px rgba(0,0,0,0.04);transition:transform .22s}
+.timeline-modern-item:hover .bullet-inn{transform:scale(1.06)}
+.timeline-modern-body{flex:1}
+.timeline-modern-title{font-weight:800;font-size:16px}
+.timeline-modern-action{color:var(--muted);font-size:20px}
+
+@media (max-width:520px){
+  .timeline-line{left:28px}
+  .timeline-modern-item{padding:10px}
+  .timeline-bullet{width:44px;height:44px}
+  .bullet-inn{width:36px;height:36px;font-size:18px}
+}
+
+@keyframes timelineItemIn{
+  from{opacity:0;transform:translateX(-12px)}
+  to{opacity:1;transform:translateX(0)}
+}
+
+@keyframes bulletPulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.06)}
+  100%{transform:scale(1)}
+}
+
+.bullet-inn{animation:bulletPulse 2.6s ease-in-out infinite}
+
+.timeline-line{background:linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.04) 100%);background-size:100% 200%;animation:lineFlow 3.6s linear infinite}
+@keyframes lineFlow{from{background-position:0% 0%}to{background-position:0% 100%}}
+
+/* carousel/card entrance */
+.carousel-card{opacity:0;transform:translateY(8px);animation:carouselIn .36s cubic-bezier(.2,.9,.25,1) forwards}
+@keyframes carouselIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* Mini-map styles */
+.minimap-wrap{background:transparent;padding:6px;border-radius:10px}
+.minimap-svg{width:100%;height:360px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));}
+.minimap-nodes circle{transition:transform .18s,fill .18s}
+.minimap-node:hover circle{transform:translateY(-6px) scale(1.04);stroke:var(--accent);}
+.minimap-hint{margin-top:8px;text-align:center}
+.minimap-links path{stroke:rgba(255,255,255,0.03);opacity:0.95}
+
 
 /* Improve visibility and emphasis for bottom Campus Highlights cards */
 .bottom-cards .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:1.5rem;border-radius:14px;box-shadow:0 30px 90px rgba(2,6,23,0.45);border:1px solid rgba(255,255,255,0.03);opacity:1;transform:none;animation:none}
@@ -400,10 +493,13 @@ html, body, .container, .card, .nav-inner { transition: background-color .24s ea
 .footer-links ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
 .footer-links li{color:var(--muted)}
 .footer-contact p{margin:6px 0}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.03);padding:18px 0;margin-top:18px;color:var(--muted);font-size:14px}
+.footer-bottom{border-top:1px solid rgba(0,0,0,0.06);padding:18px 0;margin-top:18px;color:var(--muted);font-size:14px}
 
 [data-theme='dark'] .site-footer{background:var(--surface);color:var(--text)}
-[data-theme='light'] .site-footer{background:#0b1220;color:var(--text)}
+[data-theme='light'] .site-footer{background:var(--surface);color:var(--text)}
+
+/* Footer border color overrides per theme */
+[data-theme='dark'] .footer-bottom{border-top-color:rgba(255,255,255,0.03)}
 
 @media (max-width:980px){
   .footer-grid{grid-template-columns:1fr}
