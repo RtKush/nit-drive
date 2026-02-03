@@ -192,7 +192,7 @@ export default function Home() {
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 8a6 6 0 10-12 0v5l-2 2h16l-2-2V8z" stroke="#ff6b6b" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
             )}
             actionLabel="View"
-            onAction={() => setModal({ open: true, title: 'Important Announcement', content: 'See the latest announcements and circulars.' })}
+            onAction={() => navigate('/announcements')}
           />
         </div>
       </section>

@@ -3,12 +3,14 @@ import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import ImportantLectures from './pages/ImportantLectures'
+import Announcements from './pages/Announcements'
 import NotesPYQ from './pages/NotesPYQ'
 import Faculty from './pages/Faculty'
 import Blog from './pages/Blog'
 import Syllabus from './pages/Syllabus'
 import Placement from './pages/Placement'
 import Roadmap from './pages/Roadmap'
+import RoadmapDetail from './pages/RoadmapDetail'
 import ImpTools from './pages/ImpTools'
 import Footer from './components/Footer'
 
@@ -21,12 +23,14 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/syllabus" element={<Syllabus />} />
           <Route path="/lectures" element={<ImportantLectures />} />
+          <Route path="/announcements" element={<Announcements />} />
           <Route path="/notes" element={<NotesPYQ initialTab="notes" />} />
           <Route path="/pyq" element={<NotesPYQ initialTab="pyq" />} />
           <Route path="/placement" element={<Placement />} />
           <Route path="/faculty" element={<Faculty />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/roadmap" element={<Roadmap />} />
+          <Route path="/roadmap/:id" element={<RoadmapDetail />} />
           <Route path="/tools" element={<ImpTools />} />
         </Routes>
       </main>

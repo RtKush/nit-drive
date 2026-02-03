@@ -85,12 +85,18 @@ export default function NotesPYQ({ initialTab }) {
         {tab === 'pyq' ? (
           <div>
             <div className="syllabus-grid">
-              {semesters.map((s) => (
-                <article key={s.id} className="syll-card">
-                  <div className="syll-left"><div className="syll-badge">{s.id}</div></div>
-                  <div className="syll-content"><h3>{s.title}</h3><p className="muted small">NIT Raipur</p></div>
-                  <div style={{display:'flex',alignItems:'center'}}><button className="btn primary" onClick={(e) => { e.stopPropagation(); openSem(s) }}>Open</button></div>
-                </article>
+              {semesters.map((s, idx) => (
+                <div key={s.id} className="syll-item">
+                  <article className={`syll-card unique`}>
+                    <div className="syll-left"><div className={`syll-badge variant-${idx}`}>{s.id}</div></div>
+                    <div className="syll-content">
+                      <h3>{`Semester -${s.id}`}</h3>
+                      <p className="muted small">NIT Raipur</p>
+                    </div>
+                    <div className="apply-cta"><button className="btn primary" onClick={(e) => { e.stopPropagation(); openSem(s) }}>Open</button></div>
+                  </article>
+                
+                </div>
               ))}
             </div>
           </div>
@@ -98,9 +104,12 @@ export default function NotesPYQ({ initialTab }) {
           <div>
             <div className="syll-grid-tiles" style={{marginTop:12}}>
               {semesters.map((s, i) => (
-                <article key={s.id} className="syll-tile">
-                  <div className="tile-left"><div className="tile-badge">{s.id}</div></div>
-                  <div className="tile-main"><h3>{s.title}</h3><p className="muted small"> NIT Raipur</p></div>
+                <article key={s.id} className={`syll-tile unique`}>
+                  <div className="tile-left"><div className={`tile-badge variant-${i}`}>{s.id}</div></div>
+                  <div className="tile-main">
+                    <h3>{`Semester -${s.id}`}</h3>
+                    <p className="muted small"> NIT Raipur</p>
+                  </div>
                   <div className="tile-cta"><button className="btn primary" onClick={(e) => { e.stopPropagation(); alert('Open Notes placeholder for ' + s.title) }}>View</button></div>
                 </article>
               ))}

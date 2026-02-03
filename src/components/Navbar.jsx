@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const links = [
   { to: '/', label: 'Home' },
-  { to: '/lectures', label: 'Important Lectures' },
+  { to: '/lectures', label: 'Lectures' },
   { to: '/notes', label: 'Notes' },
   { to: '/pyq', label: 'PYQ' },
   { to: '/placement', label: 'Placement' },
@@ -28,18 +28,54 @@ export default function Navbar() {
       localStorage.setItem('theme', theme)
     } catch (e) {}
   }, [theme])
+
+  const navigate = useNavigate()
+
+  function goToAnnouncements() {
+    try {
+      if (window.location.pathname === '/announcements') {
+        const el = document.getElementById('important-announcement')
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          return
+        }
+        setTimeout(() => {
+          const e = document.getElementById('important-announcement')
+          if (e) e.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }, 120)
+        return
+      }
+      const previous = window.location.pathname
+      navigate('/announcements')
+      // fallback: if SPA navigation didn't change the path, force a full load
+      setTimeout(() => {
+        if (window.location.pathname === previous) {
+          window.location.href = '/announcements'
+        }
+      }, 160)
+    } catch (err) {
+      window.location.href = '/announcements'
+    }
+  }
+
   return (
     <header className="navbar">
       <div className="nav-inner container">
         <div className="brand">
-          <span className="brand-icon">🎓</span>
-          <span className="brand-text">NIT<span className="brand-accent">~ DRIVE</span></span>
+          <span className="brand-icon" aria-hidden>🎓</span>
+          <span className="brand-text">
+            <span className="brand-name">NIT</span>
+            {/* <span className="brand-sep">~</span> */}
+            <span className="brand-accent">~DRIVE</span>
+          </span>
         </div>
+
         <button className="nav-toggle" onClick={() => setOpen((v) => !v)} aria-label="Toggle menu">
           <span className="bar" />
           <span className="bar" />
           <span className="bar" />
         </button>
+
         <nav className={"nav-links" + (open ? ' open' : '')} onClick={() => setOpen(false)}>
           {links.map((l) => (
             <NavLink
@@ -52,6 +88,24 @@ export default function Navbar() {
             </NavLink>
           ))}
         </nav>
+
+        <button
+          className="nav-notif icon-btn"
+          aria-label="Announcements"
+          title="Important announcements"
+          onClick={(e) => {
+            console.log('Announcements icon clicked')
+            goToAnnouncements()
+          }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3 11v2a2 2 0 002 2h2l5 3V6L7 9H5a2 2 0 00-2 2z" fill="currentColor" />
+            <path d="M19 8v8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M22 6v12" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.6"/>
+          </svg>
+          <span className="notif-badge" />
+        </button>
+
         <button
           className="theme-toggle"
           onClick={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))}

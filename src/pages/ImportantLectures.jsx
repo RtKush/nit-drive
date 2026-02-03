@@ -1,12 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import Modal from '../components/Modal'
 
 export default function ImportantLectures() {
   const [modal, setModal] = useState({ open: false, title: '', content: null })
   const sems = [1, 2, 3, 4, 5, 6]
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.hash === '#important-announcement') {
+      const el = document.getElementById('important-announcement')
+      if (el) {
+        // small timeout to ensure layout/mount
+        setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60)
+      }
+    }
+  }, [location])
 
   return (
     <div className="page syllabus-page light-page">
+      <div id="important-announcement" />
       <div className="light-panel">
         <div className="syll-top">
           <h2 className="syll-title">Important Lectures</h2>
