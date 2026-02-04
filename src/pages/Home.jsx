@@ -176,13 +176,13 @@ export default function Home() {
           />
 
           <Card
-            title="Memories"
-            subtitle="Event photos and student memories"
+            title="Add Materials"
+            subtitle="Contribute notes, PDFs and resources"
             icon={(
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#ffd166" strokeWidth="1.4"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14" stroke="#4a6cf7" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
             )}
-            actionLabel="View"
-            onAction={() => navigate('/blog')}
+            actionLabel="Contribute"
+            onAction={() => navigate('/add-materials')}
           />
 
           <Card
@@ -193,6 +193,41 @@ export default function Home() {
             )}
             actionLabel="View"
             onAction={() => navigate('/announcements')}
+          />
+        </div>
+      </section>
+
+      {/* NEW: additional card row (fresh level) - do not override existing cards */}
+      <section className="container bottom-cards extra-cards" style={{marginTop:18}}>
+        <div className="grid" style={{gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))',gap:12}}>
+          <Card
+            title="Imp Tools"
+            subtitle="Important tools and resources"
+            icon={(
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3 6 6 .5-4.5 3.75L19 20l-7-4-7 4 2.5-7.75L3 8.5 9 8l3-6z" stroke="#ffd166" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            )}
+            actionLabel="Open"
+            onAction={() => navigate('/tools')}
+          />
+
+          <Card
+            title="Add Materials"
+            subtitle="Contribute notes, PDFs and resources"
+            icon={(
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14" stroke="#4a6cf7" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            )}
+            actionLabel="Contribute"
+            onAction={() => navigate('/add-materials')}
+          />
+
+          <Card
+            title="Facilities"
+            subtitle="Campus labs, library and hostels"
+            icon={(
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#8fe6ff" strokeWidth="1.4"/></svg>
+            )}
+            actionLabel="Explore"
+            onAction={() => navigate('/facilities')}
           />
         </div>
       </section>

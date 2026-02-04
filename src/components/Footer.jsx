@@ -25,7 +25,7 @@ export default function Footer(){
             <li><NavLink to="/lectures" className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'}>Important Lectures</NavLink></li>
             <li><NavLink to="/notes" className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'}>Notes + PYQ</NavLink></li>
             <li><NavLink to="/placement" className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'}>Placement</NavLink></li>
-            <li><NavLink to="/blog" className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'}>Memories</NavLink></li>
+            <li><NavLink to="/add-materials" className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'}>Add Materials</NavLink></li>
           </ul>
         </div>
 
