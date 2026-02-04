@@ -116,7 +116,16 @@ export default function Home() {
                     if (s.key === 'notes') return navigate('/notes')
                     if (s.key === 'placement') return navigate('/placement')
                     if (s.key === 'books') {
-                      const sems = Array.from({ length: 8 }, (_, i) => i + 1)
+                      // Per-semester book links (use same links you provided for sem 1-5)
+                      const BOOKS_LINKS = [
+                        'https://mega.nz/file/7mIRzQ7Y#KfuHicBq7c3ti4R62S_GR8HtXSLk3IfAdj6Ti9n0BRw',
+                        'https://mega.nz/file/jy5CmYoL#8vBKf70yR5NBwrfbUdP5BKMmm53OaLS6yqJSN0uCgmY',
+                        'https://mega.nz/file/uipQQACB#NrclRoMZ5lwR2Oj5iEwzWa_wQGHHRq0yJjjETueYUts',
+                        'https://mega.nz/file/XmZ3BJYD#9gT4w8icDg9bPEagLWWuwY7C6tmbhDu8x3jzyISBIac',
+                        'https://mega.nz/folder/9xAhGA5Q#zlZMw_6ZsZtBZjhImHvzqA/file/Uh5nzCJR',
+                        null,
+                      ]
+                      const sems = [1, 2, 3, 4, 5, 6]
                       setModal({
                         open: true,
                         title: 'Books',
@@ -134,16 +143,33 @@ export default function Home() {
                                     <div className="muted">NIT Raipur</div>
                                   </div>
                                   <div className="tile-cta">
-                                    <button
-                                      type="button"
-                                      className="btn small"
-                                      onClick={() => {
-                                        setModal({ open: false })
-                                        navigate(`/notes?sem=${n}`)
-                                      }}
-                                    >
-                                      View
-                                    </button>
+                                    {BOOKS_LINKS[n - 1] ? (
+                                      <a className="btn small" href={BOOKS_LINKS[n - 1]} target="_blank" rel="noopener noreferrer">View</a>
+                                    ) : (
+                                      <button
+                                        type="button"
+                                        className="btn small"
+                                        onClick={() => {
+                                          // For semester 6 show the project modal
+                                          if (n === 6) {
+                                            setModal({ open: true, title: `Semester ${n}`, content: (
+                                              <div style={{textAlign:'center',padding:12}}>
+                                                <h3 style={{marginTop:0}}>Minor Project and Major Project</h3>
+                                                <p className="muted" style={{marginTop:8}}>6th Semester is all about Minor and Major project.</p>
+                                                <div style={{marginTop:14}}>
+                                                  <button className="btn primary" onClick={() => setModal({ open: false })}>OK</button>
+                                                </div>
+                                              </div>
+                                            ) })
+                                            return
+                                          }
+                                          setModal({ open: false })
+                                          navigate(`/notes?sem=${n}`)
+                                        }}
+                                      >
+                                        View
+                                      </button>
+                                    )}
                                   </div>
                                 </div>
                               ))}

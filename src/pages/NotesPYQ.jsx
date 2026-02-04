@@ -3,6 +3,25 @@ import Modal from '../components/Modal'
 import { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
+// Per-semester links for Notes and PYQ — set to the links you provided
+const NOTES_LINKS = [
+  'https://drive.google.com/drive/folders/1gpBGHN5rQ7VO7nrJW-rwfLIwcy2GHQnT?usp=drive_link',
+  'https://drive.google.com/drive/folders/1X9O8IVQrWu0-gitoJS26LRfWIsMjWwtR?usp=drive_link',
+  'https://drive.google.com/drive/folders/1qiamCCR_jNjXY2foducRaYYfTHyHG5vs?usp=drive_link',
+  'https://drive.google.com/drive/folders/1e9P-heH7e3tufOtwI2Gc2ja_ZddygzpA?usp=drive_link',
+  'https://drive.google.com/drive/folders/15hZjMVxc8jKQ6QEj0Ejzosmk7EN_Ufxt?usp=drive_link',
+  null,
+]
+
+const PYQ_LINKS = [
+  'https://drive.google.com/drive/folders/1CsrKscTFv6BU_9jLe8TP0iGu9s3pFv_3?usp=drive_link',
+  'https://drive.google.com/drive/folders/1Zry9EW373D6trFhWWIyCGdZAW5lQJvZ8?usp=drive_link',
+  'https://drive.google.com/drive/folders/1T9b86w1dmlT9nfArqbbplvrJXxCl_nbV?usp=drive_link',
+  'https://drive.google.com/drive/folders/11Mgm8CDDMcHP65pT1zC2G_V2--aqgoC3?usp=drive_link',
+  'https://drive.google.com/drive/folders/1hgXUPZ85gfU-h8Pce-tuo6BVUHh1xuad?usp=drive_link',
+  null,
+]
+
 const semesters = [
   { id: 1, title: 'First Semester' },
   { id: 2, title: 'Second Semester' },
@@ -58,16 +77,33 @@ export default function NotesPYQ({ initialTab }) {
       open: true,
       title: s.title,
       content: (
-        <div>
+          <div>
           <p className="muted">Static sample of previous year questions for quick preview.</p>
           <ul style={{marginTop:12}}>
             {list.map((q, i) => (
               <li key={i} style={{marginBottom:6}}>{q}</li>
             ))}
           </ul>
-          <div style={{marginTop:14,display:'flex',gap:8}}>
+          <div style={{marginTop:14,display:'flex',gap:8,alignItems:'center'}}>
             <button className="btn" onClick={() => { setModal({ open: false }) }}>Close</button>
             <a className="btn primary" href="#" onClick={(e) => { e.preventDefault(); alert('Download placeholder — add static PDF file here') }}>Download PDF</a>
+            {PYQ_LINKS[s.id - 1] ? (
+              <a className="btn" style={{marginLeft:8}} href={PYQ_LINKS[s.id - 1]} target="_blank" rel="noopener noreferrer">View</a>
+            ) : (
+              <button
+                className="btn"
+                style={{marginLeft:8}}
+                onClick={() => setModal({ open: true, title: s.title, content: (
+                  <div style={{textAlign:'center',padding:12}}>
+                    <h3 style={{marginTop:0}}>Minor Project and Major Project</h3>
+                    <p className="muted" style={{marginTop:8}}>6th Semester is all about Minor and Major project.</p>
+                    <div style={{marginTop:14}}>
+                      <button className="btn primary" onClick={() => setModal({ open: false })}>OK</button>
+                    </div>
+                  </div>
+                ) })}
+              >View</button>
+            )}
           </div>
         </div>
       ),
@@ -92,7 +128,22 @@ export default function NotesPYQ({ initialTab }) {
                     <h3>{`Semester -${s.id}`}</h3>
                     <p className="muted small">NIT Raipur</p>
                   </div>
-                  <div className="tile-cta"><button className="btn primary" onClick={(e) => { e.stopPropagation(); openSem(s) }}>Open</button></div>
+                  <div className="tile-cta">
+                 
+                    {PYQ_LINKS[s.id - 1] ? (
+                      <a className="btn" style={{marginLeft:8}} href={PYQ_LINKS[s.id - 1]} target="_blank" rel="noopener noreferrer">View</a>
+                    ) : (
+                      <button className="btn" style={{marginLeft:8}} onClick={() => setModal({ open: true, title: s.title, content: (
+                        <div style={{textAlign:'center',padding:12}}>
+                          <h3 style={{marginTop:0}}>Minor Project and Major Project</h3>
+                          <p className="muted" style={{marginTop:8}}>6th Semester is all about Minor and Major project.</p>
+                          <div style={{marginTop:14}}>
+                            <button className="btn primary" onClick={() => setModal({ open: false })}>OK</button>
+                          </div>
+                        </div>
+                      ) })}>View</button>
+                    )}
+                  </div>
                 </article>
               ))}
             </div>
@@ -107,7 +158,22 @@ export default function NotesPYQ({ initialTab }) {
                     <h3>{`Semester -${s.id}`}</h3>
                     <p className="muted small"> NIT Raipur</p>
                   </div>
-                  <div className="tile-cta"><button className="btn primary" onClick={(e) => { e.stopPropagation(); alert('Open Notes placeholder for ' + s.title) }}>View</button></div>
+                  <div className="tile-cta">
+                    {/* <button className="btn primary" onClick={(e) => { e.stopPropagation(); alert('Open Notes placeholder for ' + s.title) }}>View</button> */}
+                    {NOTES_LINKS[s.id - 1] ? (
+                      <a className="btn" style={{marginLeft:8}} href={NOTES_LINKS[s.id - 1]} target="_blank" rel="noopener noreferrer">View</a>
+                    ) : (
+                      <button className="btn" style={{marginLeft:8}} onClick={() => setModal({ open: true, title: s.title, content: (
+                        <div style={{textAlign:'center',padding:12}}>
+                          <h3 style={{marginTop:0}}>Minor Project and Major Project</h3>
+                          <p className="muted" style={{marginTop:8}}>6th Semester is all about Minor and Major project.</p>
+                          <div style={{marginTop:14}}>
+                            <button className="btn primary" onClick={() => setModal({ open: false })}>OK</button>
+                          </div>
+                        </div>
+                      ) })}>View</button>
+                    )}
+                  </div>
                 </article>
               ))}
             </div>

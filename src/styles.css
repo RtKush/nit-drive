@@ -217,7 +217,7 @@ html, body, .container, .card, .nav-inner { transition: background-color .24s ea
 
 /* New tile layout for syllabus: two-column tiles with clear CTA */
 .syll-grid-tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:980px;margin:18px auto 40px}
-.syll-tile{display:grid;grid-template-columns:84px 1fr auto;align-items:center;gap:18px;padding:20px;border-radius:14px;background:#ffffff;border:1px solid rgba(16,24,40,0.04);box-shadow:0 32px 80px rgba(12,20,30,0.06)}
+.syll-tile{display:grid;grid-template-columns:84px 1fr auto;align-items:center;gap:18px;padding:20px;border-radius:14px;background:var(--card-bg);border:1px solid rgba(16,24,40,0.04);box-shadow:0 32px 80px rgba(12,20,30,0.06)}
 .tile-left{display:flex;align-items:center;justify-content:center}
 .tile-badge{width:72px;height:72px;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:20px;background:linear-gradient(135deg,#ff8a85,#ff6b6b);box-shadow:0 18px 40px rgba(12,20,30,0.06)}
 .tile-main h3{margin:0 0 6px;font-size:18px;color:var(--text)}
@@ -263,6 +263,16 @@ html, body, .container, .card, .nav-inner { transition: background-color .24s ea
 
 [data-theme='dark'] .light-panel{background:linear-gradient(180deg,#0d1622,#081018);border-color:rgba(255,255,255,0.04);box-shadow:0 60px 160px rgba(2,6,23,0.6);}
 [data-theme='light'] .light-panel{background:linear-gradient(180deg,#ffffff,#f3f5f7);border-color:rgba(0,0,0,0.04)}
+
+/* Subject list inside modals */
+.subject-list{display:flex;flex-direction:column;gap:8px;margin-top:8px;padding-right:6px}
+.subject-row{display:flex;align-items:center;justify-content:space-between;padding:10px;border-radius:8px;background:var(--card-bg);border:1px solid rgba(16,24,40,0.04)}
+.subject-row strong{color:var(--text);font-weight:700}
+.subject-row .muted{color:var(--muted);font-size:12px}
+.subject-row .btn.small{padding:.45rem .6rem}
+
+[data-theme='dark'] .syll-tile{border-color:rgba(255,255,255,0.04);box-shadow:0 32px 80px rgba(2,6,23,0.6)}
+[data-theme='dark'] .subject-row{border-color:rgba(255,255,255,0.04)}
 
 /* ensure in light-page variant we use a three-column grid by default */
 .light-page .syllabus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:100%;box-sizing:border-box;margin-top:18px;padding:0}
