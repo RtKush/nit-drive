@@ -84,19 +84,16 @@ export default function NotesPYQ({ initialTab }) {
 
         {tab === 'pyq' ? (
           <div>
-            <div className="syllabus-grid">
-              {semesters.map((s, idx) => (
-                <div key={s.id} className="syll-item">
-                  <article className={`syll-card unique`}>
-                    <div className="syll-left"><div className={`syll-badge variant-${idx}`}>{s.id}</div></div>
-                    <div className="syll-content">
-                      <h3>{`Semester -${s.id}`}</h3>
-                      <p className="muted small">NIT Raipur</p>
-                    </div>
-                    <div className="apply-cta"><button className="btn primary" onClick={(e) => { e.stopPropagation(); openSem(s) }}>Open</button></div>
-                  </article>
-                
-                </div>
+            <div className="syll-grid-tiles">
+              {semesters.map((s, i) => (
+                <article key={s.id} className={`syll-tile unique`}>
+                  <div className="tile-left"><div className={`tile-badge variant-${i}`}>{s.id}</div></div>
+                  <div className="tile-main">
+                    <h3>{`Semester -${s.id}`}</h3>
+                    <p className="muted small">NIT Raipur</p>
+                  </div>
+                  <div className="tile-cta"><button className="btn primary" onClick={(e) => { e.stopPropagation(); openSem(s) }}>Open</button></div>
+                </article>
               ))}
             </div>
           </div>
