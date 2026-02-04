@@ -22,9 +22,9 @@ export default function Syllabus() {
 
           <div className="syll-grid-tiles" style={{marginTop:36}}>
             {semesters.map((s, i) => (
-              <article key={s} className="syll-tile">
+              <article key={s} className="syll-tile unique">
                 <div className="tile-left">
-                  <div className="tile-badge">{i + 1}</div>
+                  <div className={`tile-badge variant-${i}`}>{i + 1}</div>
                 </div>
 
                 <div className="tile-main">
@@ -33,7 +33,7 @@ export default function Syllabus() {
                 </div>
 
                 <div className="tile-cta">
-                  <button className="btn primary" onClick={(e) => { e.stopPropagation(); navigate('') }}>View</button>
+                  <button className="btn primary" onClick={(e) => { e.stopPropagation(); alert('Open Syllabus placeholder for ' + s) }}>View</button>
                 </div>
               </article>
             ))}
