@@ -17,7 +17,7 @@ import Footer from './components/Footer'
 export default function App() {
   return (
     <div className="app-root">
-      <div style={{padding:8,background:'#fffae6',textAlign:'center',fontWeight:700}}>TEST DEPLOY BANNER — Feb 4, 2026</div>
+     
       <Navbar />
       <main className="container">
         <Routes>
