@@ -399,6 +399,27 @@ html, body, .container, .card, .nav-inner { transition: background-color .24s ea
   .timeline-items{gap:8px}
 }
 
+/* Additional mobile fixes for PYQ / Syllabus to remove extra whitespace and improve stacking */
+@media (max-width:520px){
+  .light-panel{max-width:100%;margin:12px;box-shadow:none;padding:16px}
+  .light-panel .syllabus-grid{padding:0;width:100%}
+  .syll-item{align-items:stretch}
+  .syll-card{flex-direction:row;align-items:center;gap:12px;padding:12px}
+  .syll-card .syll-left{flex:0 0 56px;width:56px}
+  .syll-badge{width:48px;height:48px;border-radius:10px;font-size:16px}
+  .syll-content h3{font-size:16px}
+  .apply-cta{display:flex;align-items:center}
+}
+
+@media (max-width:380px){
+  .light-panel{padding:12px;margin:10px}
+  .syll-card{flex-direction:row;gap:10px;padding:10px}
+  .syll-left{width:48px}
+  .syll-badge{width:44px;height:44px;font-size:15px}
+  .syll-content h3{font-size:15px}
+  .syll-content .muted{font-size:12px}
+}
+
 /* Flowchart styling */
 .flowchart-wrap{display:flex;flex-direction:column;gap:12px}
 .flowchart-svg{width:100%;height:520px;background:transparent}
