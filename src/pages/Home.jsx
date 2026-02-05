@@ -31,9 +31,11 @@ const icons = {
   placement: (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3 6 6 .5-4.5 3.75L19 20l-7-4-7 4 2.5-7.75L3 8.5 9 8l3-6z" stroke="#ffd166" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
   ),
+  
 }
 
 export default function Home() {
+  const FEE_LINK = 'https://drive.google.com/file/d/1xUIegcVcAwy-U0sZV_4VMQzTYXpbFFZL/view'
   const [modal, setModal] = useState({ open: false, title: '', content: null })
   const stripRef = useRef()
   const cardsRowRef = useRef()
@@ -111,6 +113,10 @@ export default function Home() {
                 
                 actionLabel="View"
                   onAction={() => {
+                    if (s.key === 'fee') {
+                      window.open(FEE_LINK, '_blank', 'noopener,noreferrer')
+                      return
+                    }
                     if (s.key === 'syllabus') return navigate('/syllabus')
                     if (s.key === 'pyq') return navigate('/pyq')
                     if (s.key === 'notes') return navigate('/notes')
@@ -202,13 +208,13 @@ export default function Home() {
           />
 
           <Card
-            title="Add Materials"
-            subtitle="Contribute notes, PDFs and resources"
+            title="Memories"
+            subtitle="NITRR Epic Moments Gallery"
             icon={(
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14" stroke="#4a6cf7" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
             )}
             actionLabel="Contribute"
-            onAction={() => navigate('/add-materials')}
+           onAction={() => window.open('https://chatgpt.com/c/69849de9-746c-8320-ba40-e6130ecde57a', '_blank')}
           />
 
           <Card
