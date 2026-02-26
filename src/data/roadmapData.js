@@ -65,7 +65,7 @@ const cards = [
   { title: 'SpringBoot', icon: '🌱', desc: 'REST services, DI, JPA.', roadmap: ['Spring core', 'MVC', 'Data with JPA'] },
   { title: 'Git', icon: '🌿', desc: 'Version control, branching, merging.', roadmap: ['Git basics', 'Branching', 'Merging'] },
   { title: 'GitHub', icon: '💡', desc: 'Repos, PRs, actions, collaboration.', roadmap: ['PRs', 'Actions', 'Open source'] },
-  { title: 'System Design', icon: '🏗️', desc: 'Scalability, caching, load.', roadmap: ['Design fundamentals', 'Databases', 'Caching'] },
+  { title: 'System Design', icon: '🏗️', desc: 'Scalability, caching, load.', roadmap: ['Design fundamentals', 'Databases', 'Caching',] },
   { title: 'Dev Tools', icon: '🧰', desc: 'Docker, Postman, DevTools.', roadmap: ['Docker', 'API testing', 'Devtools'] },
 ]
 

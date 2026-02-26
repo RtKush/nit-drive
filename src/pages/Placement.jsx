@@ -7,11 +7,19 @@ const sampleEvents = [
 ]
 
 const recruiters = [
-  { name: 'Google', pkg: '45 LPA', placed: 5 },
-  { name: 'Microsoft', pkg: '42 LPA', placed: 8 },
-  { name: 'Amazon', pkg: '38 LPA', placed: 15 },
-  { name: 'Flipkart', pkg: '28 LPA', placed: 12 },
-  { name: 'Adobe', pkg: '32 LPA', placed: 6 },
+  { name: 'Visa', pkg: '33 LPA' },
+  { name: 'Optum', pkg: '22 LPA' },
+  { name: 'Quantiphi', pkg: '10 LPA' },
+  { name: 'Husigtic System', pkg: '10 LPA' },
+  { name: 'Infosys', pkg: 'Role L1-10 LPA, L2-16 LPA, L3-21 LPA' },
+]
+
+const placementstats = [
+  { batch: 'Batch 2k20-23', place: '45+ Placed', comp: 20 },
+  { batch: 'Batch 2k21-24', place: '42 LPA', comp: 25 },
+  { batch: 'Batch 2k22-25', place: '38 LPA', comp: 25 },
+  { batch: 'Batch 2k23-26', place: '28 LPA', comp: 25 },
+  { batch: 'Upcomming', place: 'N/A', comp: 0 },
 ]
 
 const recentExperiences = [
@@ -79,8 +87,8 @@ export default function Placement(){
           <h3>Preparation & Tools</h3>
           <div className="grid" style={{gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))',gap:16,marginTop:12}}>
             <div className="card"><h4>Personal Workspace</h4><p className="muted small">Use your personal space to practice, store notes, and track progress.</p><div style={{marginTop:12}}><button className="btn" onClick={() => setModal({ open: true, title: 'Personal Workspace', content: 'Personal workspace placeholder: notes, practice logs, and files.' })}>Open</button></div></div>
-            <div className="card"><h4>Resume Building</h4><p className="muted small">Templates and examples tailored for campus hiring.</p><div style={{marginTop:12}}><button className="btn" onClick={() => setModal({ open: true, title: 'Resume Templates', content: 'Collection of resume templates (placeholder).' })}>Open</button></div></div>
-            <div className="card"><h4>GD & HR Tips</h4><p className="muted small">Group discussion topics and HR preparation notes.</p><div style={{marginTop:12}}><button className="btn" onClick={() => setModal({ open: true, title: 'GD & HR Tips', content: 'Tips and sample questions (placeholder).' })}>Read</button></div></div>
+            <div className="card"><h4>Resume Building</h4><p className="muted small">Templates and examples tailored for campus hiring.</p><div style={{marginTop:12}}><button className="btn" onClick={() => setModal({ open: true, title: 'Resume Templates', content: 'Collection of resume templates (placeholder).' })}>View Formates</button> <button className="btn" onClick={() => setModal({ open: true, title: 'Resume Templates', content: 'Collection of resume templates (placeholder).' })}>Check ATS</button></div></div>
+            <div className="card"><h4>Important PDFs</h4><p className="muted small">Give here that PDF from Linkedin downloads usko ek drive me dal dena</p><div style={{marginTop:12}}><button className="btn" onClick={() => setModal({ open: true, title: 'GD & HR Tips', content: 'Tips and sample questions (placeholder).' })}>Read</button></div></div>
           </div>
         </section>
 
@@ -91,7 +99,19 @@ export default function Placement(){
               <div key={r.name} className="card" style={{textAlign:'center'}}>
                 <div style={{fontWeight:800}}>{r.name}</div>
                 <div className="stat-num" style={{marginTop:6}}>{r.pkg}</div>
-                <div className="muted small">{r.placed} students placed</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+         <section style={{marginTop:26}}>
+          <h3>Placement Statestics Batch Wise</h3>
+          <div className="grid" style={{gridTemplateColumns:'repeat(auto-fit,minmax(160px,1fr))',gap:12,marginTop:12}}>
+            {placementstats.map((r) => (
+              <div key={r.batch} className="card" style={{textAlign:'center'}}>
+                <div style={{fontWeight:800}}>{r.batch}</div>
+                <div className="stat-num" style={{marginTop:6}}>{r.place}</div>
+                <div className="muted small">{r.comp}+ companies visits</div>
               </div>
             ))}
           </div>
